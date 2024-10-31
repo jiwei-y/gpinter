@@ -165,7 +165,7 @@ clean_input_tabulation <- function(p, threshold, average=NULL, bracketshare=NULL
     # Total average consistent with bracket averages
     if (p[1] == 0) {
         if (abs((average - m[1])/average) > 1e-2) {
-            stop(sprintf(paste("the average you specified (%.2f) is inconsistent with the average",
+            warning(sprintf(paste("the average you specified (%.2f) is inconsistent with the average",
                 "implied by the brackets (%.2f)"), average, m[1]))
         }
         average <- m[1]
