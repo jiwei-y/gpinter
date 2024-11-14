@@ -150,25 +150,23 @@ clean_input_tabulation <- function(p, threshold, average=NULL, bracketshare=NULL
     bracketavg <- -diff(c(m, 0))/diff(c(p, 1))
     for (i in 1:(n - 1)) {
         if (bracketavg[i] <= threshold[i] || bracketavg[i] >= threshold[i + 1]) {
-            stop(sprintf(paste(
+            warning(sprintf(paste(
                 "input data is inconsistent between p=%.4f and p=%.4f. The bracket",
                 "average (%.2f) is not strictly within the bracket thresholds (%.2f and %.2f)"
             ), p[i], p[i + 1], bracketavg[i], threshold[i], threshold[i + 1]))
         }
         if (bracketavg[n] <= threshold[n]) {
-            stop(sprintf(paste(
+            warning(sprintf(paste(
                 "input data is inconsistent after p=%.4f. The bracket",
                 "average (%.2f) is not strictly above the bracket threshold (%.2f)"
             ), p[n], bracketavg[n], threshold[n]))
         }
     }
     # Total average consistent with bracket averages
-    if (p[1] == 0) {
-        if (abs((average - m[1])/average) > 1e-2) {
-            stop(sprintf(paste("the average you specified (%.2f) is inconsistent with the average",
-                "implied by the brackets (%.2f)"), average, m[1]))
-        }
-        average <- m[1]
+    if (p[1] == 0 && abs((average - m[1])/average) > 1e-2) {
+        warning(sprintf(paste("the average you specified (%.2f) is inconsistent with the average",
+            "implied by the brackets (%.2f)"), average, m[1]))
+        #average <- m[1]
     }
 
     return(list(p=p, m=m, threshold=threshold, average=average,
