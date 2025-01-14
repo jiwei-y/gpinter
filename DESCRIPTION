@@ -1,14 +1,14 @@
 Package: gpinter
 Type: Package
 Title: Generalized Pareto Interpolation
-Version: 0.0.0.9000
-Date: 2016-10-18
+Version: 0.0.0.9001
 Authors@R: c(
-    person("Thomas", "Blanchet", email="thomas.blanchet@ensae.org", role=c("cre", "aut")),
+    person("Thomas", "Blanchet", email="thomas.blanchet@ensae.org", role="aut"),
     person("Juliette", "Fournier", email="jfournie@mit.edu", role="aut"),
-    person("Thomas", "Piketty", email="thomas.piketty@psemail.eu", role="aut"))
+    person("Thomas", "Piketty", email="thomas.piketty@psemail.eu", role="aut"),
+    person("Jiwei", "Yang", email="yangjiwei@pm.me", role=c("cre", "ctb")))
 Description: Nonparametric estimation of distributions from tabulated data using generalized Pareto interpolation techniques.
-License: MIT + file LICENSE
+License: AGPL-3
 LazyData: TRUE
 Imports:
     nloptr (>= 1.0.4),
